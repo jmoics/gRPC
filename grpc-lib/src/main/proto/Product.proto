@@ -1,0 +1,42 @@
+  
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.lycsoftware.grpc.protobuf";
+option java_outer_classname = "ProductProto";
+
+// The greeting service definition.
+service ProductProtoService {
+    // Sends a greeting
+    rpc getProductProtoRecords (ProductProtoRequest) returns (ProductProtoRecordList) {
+    }
+    
+    rpc getProductProtoRecordsStream (ProductProtoRequest) returns (stream ProductProtoRecord) {
+    }
+}
+
+// The request message containing the user's name.
+message ProductProtoRequest {
+    string id = 1;
+    string contact_id = 2;
+    string product_id = 3;
+    string location_id = 4;
+    string product_name = 5;
+    int32 quantity = 6;
+}
+
+message ProductProtoRecordList {
+    int32 total_records = 1;
+    repeated ProductProtoRecord product_list = 2;
+}
+
+message ProductProtoRecord {
+    string id = 1;
+    string contact_id = 2;
+    string product_id = 3;
+    string location_id = 4;
+    string product_name = 5;
+    int32 quantity = 6;
+    double price = 7;
+
+}
